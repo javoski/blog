@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://xujiongbo.com/"/>
-  <updated>2015-11-03T13:03:23.000Z</updated>
+  <updated>2015-11-03T13:18:59.000Z</updated>
   <id>http://xujiongbo.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://xujiongbo.com/2015/11/03/Brilliant-Hexo-Themes/"/>
     <id>http://xujiongbo.com/2015/11/03/Brilliant-Hexo-Themes/</id>
     <published>2015-11-03T10:30:30.000Z</published>
-    <updated>2015-11-03T13:03:23.000Z</updated>
+    <updated>2015-11-03T13:18:59.000Z</updated>
     <content type="html"><![CDATA[<p>Hexo is a fast, simple &amp; powerful blog framework<br><a id="more"></a></p>
 <ul>
 <li><a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme" target="_blank" rel="external">Tranquilpeak</a>: <a href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/" target="_blank" rel="external">demo</a></li>
@@ -37,11 +37,11 @@
   </entry>
   
   <entry>
-    <title><![CDATA[深入理解css3动画]]></title>
+    <title><![CDATA[深入理解CSS动画]]></title>
     <link href="http://xujiongbo.com/2015/11/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
     <id>http://xujiongbo.com/2015/11/03/深入理解css3动画/</id>
     <published>2015-11-03T10:14:05.000Z</published>
-    <updated>2015-11-03T13:12:47.000Z</updated>
+    <updated>2015-11-03T13:27:01.000Z</updated>
     <content type="html"></content>
     <summary type="html">
     
@@ -58,7 +58,7 @@
     <link href="http://xujiongbo.com/2015/10/30/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://xujiongbo.com/2015/10/30/React-学习笔记/</id>
     <published>2015-10-30T08:27:47.000Z</published>
-    <updated>2015-11-03T13:12:55.000Z</updated>
+    <updated>2015-11-03T13:24:34.000Z</updated>
     <content type="html"><![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]></content>
     <summary type="html">
     <![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]>
@@ -66,7 +66,7 @@
     
       <category term="React" scheme="http://xujiongbo.com/tags/React/"/>
     
-      <category term="前端开发" scheme="http://xujiongbo.com/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="JavaScript" scheme="http://xujiongbo.com/categories/JavaScript/"/>
     
   </entry>
   
