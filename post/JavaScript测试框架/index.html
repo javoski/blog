@@ -12,16 +12,16 @@
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。">
+    <meta name="description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="JavaScript测试框架">
 <meta property="og:url" content="http://xujiongbo.com/post/JavaScript测试框架/index.html">
 <meta property="og:site_name" content="Xujiongbo">
-<meta property="og:description" content="简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。">
-<meta property="og:updated_time" content="2015-11-09T15:41:41.000Z">
+<meta property="og:description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
+<meta property="og:updated_time" content="2015-11-09T16:07:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript测试框架">
-<meta name="twitter:description" content="简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。">
+<meta name="twitter:description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
     
     
     
@@ -215,13 +215,16 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
-<ol>
-<li>断言组件assert<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a>是node.js内置的一个module，通过<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>来使用</p>
-
+            <p>简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
+<h4 id="1-_断言组件assert">1. 断言组件assert</h4><p>在介绍mocha之前，先来了解一下assert。<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a> 是node.js内置的一个module，通过<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure></p>
+<pre><code>来使用。
+它拥有一下几个主要方法：
+- <span class="keyword">assert</span>.[not]equal(<span class="annotation">actual</span>, expected[,message])，相当于 ==
+- <span class="keyword">assert</span>(<span class="keyword">value</span>[,message]) 或者 <span class="keyword">assert</span>.ok(<span class="keyword">value</span>[,message])，相当于<span class="keyword">assert</span>.equal(true, !!<span class="keyword">value</span>[,message])
+- <span class="keyword">assert</span>.[not]deepEqual(<span class="annotation">actual</span>, expected[, message])，在基本类型上来说与equal一致，只对可枚举类型有意义
+- <span class="keyword">assert</span>.[not]StrictEqual(<span class="annotation">actual</span>, expected[, message])，相当于 ===
+- <span class="keyword">assert</span>.[not]DeepStrictEqual(<span class="annotation">actual</span>, expected[, message])
+</code></pre>
             
                 
 
