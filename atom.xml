@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://xujiongbo.com/"/>
-  <updated>2015-11-03T13:18:59.000Z</updated>
+  <updated>2015-11-09T15:41:41.000Z</updated>
   <id>http://xujiongbo.com/</id>
   
   <author>
@@ -15,9 +15,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[JavaScript测试框架]]></title>
+    <link href="http://xujiongbo.com/post/JavaScript%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
+    <id>http://xujiongbo.com/post/JavaScript测试框架/</id>
+    <published>2015-11-09T05:38:40.000Z</published>
+    <updated>2015-11-09T15:41:41.000Z</updated>
+    <content type="html"><![CDATA[<p>简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
+<ol>
+<li>断言组件assert<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a>是node.js内置的一个module，通过<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>来使用</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>简要介绍使用mocha + should.js来编写简单的测试单元和测试模块。<br>]]>
+    
+    </summary>
+    
+      <category term="mocha" scheme="http://xujiongbo.com/tags/mocha/"/>
+    
+      <category term="sould.js" scheme="http://xujiongbo.com/tags/sould-js/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Brilliant Hexo Themes]]></title>
-    <link href="http://xujiongbo.com/2015/11/03/Brilliant-Hexo-Themes/"/>
-    <id>http://xujiongbo.com/2015/11/03/Brilliant-Hexo-Themes/</id>
+    <link href="http://xujiongbo.com/post/Brilliant-Hexo-Themes/"/>
+    <id>http://xujiongbo.com/post/Brilliant-Hexo-Themes/</id>
     <published>2015-11-03T10:30:30.000Z</published>
     <updated>2015-11-03T13:18:59.000Z</updated>
     <content type="html"><![CDATA[<p>Hexo is a fast, simple &amp; powerful blog framework<br><a id="more"></a></p>
@@ -38,8 +62,8 @@
   
   <entry>
     <title><![CDATA[深入理解CSS动画]]></title>
-    <link href="http://xujiongbo.com/2015/11/03/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
-    <id>http://xujiongbo.com/2015/11/03/深入理解css3动画/</id>
+    <link href="http://xujiongbo.com/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
+    <id>http://xujiongbo.com/post/深入理解css3动画/</id>
     <published>2015-11-03T10:14:05.000Z</published>
     <updated>2015-11-03T13:27:01.000Z</updated>
     <content type="html"></content>
@@ -55,8 +79,8 @@
   
   <entry>
     <title><![CDATA[React 学习笔记]]></title>
-    <link href="http://xujiongbo.com/2015/10/30/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://xujiongbo.com/2015/10/30/React-学习笔记/</id>
+    <link href="http://xujiongbo.com/post/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://xujiongbo.com/post/React-学习笔记/</id>
     <published>2015-10-30T08:27:47.000Z</published>
     <updated>2015-11-03T13:24:34.000Z</updated>
     <content type="html"><![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]></content>
