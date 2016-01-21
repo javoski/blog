@@ -6,22 +6,22 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Xujiongbo">
-    <title>Brilliant Hexo Themes - Xujiongbo</title>
+    <title>Javascript小贴士 - Xujiongbo</title>
     <meta name="author" content="Xujiongbo">
     
     
         <link rel="alternative" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="Hexo is a fast, simple &amp;amp; powerful blog framework">
+    <meta name="description" content="Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Brilliant Hexo Themes">
-<meta property="og:url" content="http://xujiongbo.com/post/Brilliant-Hexo-Themes/index.html">
+<meta property="og:title" content="Javascript小贴士">
+<meta property="og:url" content="http://xujiongbo.com/post/Javascript小贴士/index.html">
 <meta property="og:site_name" content="Xujiongbo">
-<meta property="og:description" content="Hexo is a fast, simple &amp;amp; powerful blog framework">
-<meta property="og:updated_time" content="2015-11-03T13:18:59.000Z">
+<meta property="og:description" content="Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。">
+<meta property="og:updated_time" content="2016-01-21T08:53:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Brilliant Hexo Themes">
-<meta name="twitter:description" content="Hexo is a fast, simple &amp;amp; powerful blog framework">
+<meta name="twitter:title" content="Javascript小贴士">
+<meta name="twitter:description" content="Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。">
     
     
     
@@ -200,31 +200,26 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Brilliant Hexo Themes
+            Javascript小贴士
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Tue Nov 03 2015 18:30:30 GMT+0800">
+    <time itemprop="datePublished" content="Thu Jan 21 2016 16:17:27 GMT+0800">
 	
-		    11月 03, 2015
+		    1月 21, 2016
     	
     </time>
-    
-        <span>发布在 </span>
-        
-    <a class="category-link" href="/categories/Tools/">Tools</a>
-
-
     
 </div>
 </div>
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>Hexo is a fast, simple &amp; powerful blog framework<br><a id="more"></a></p>
-<ul>
-<li><a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme" target="_blank" rel="external">Tranquilpeak</a>: <a href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/" target="_blank" rel="external">demo</a></li>
-</ul>
+            <p>Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。<br><a id="more"></a></p>
+<h4 id="1-_链式方法">1. 链式方法</h4><p>jQuery中 $dom.html().css().addClass() 这类的就叫链式方法，在对象方法中返回对象本身(this)就可以实现。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chain</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.val = val</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.val)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.setVal = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.val = val</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> chain = <span class="keyword">new</span> Chain(<span class="string">'foo'</span>)</span><br><span class="line">chain.print().setVal(<span class="string">'bar'</span>).print()</span><br><span class="line"><span class="comment">//foo</span></span><br><span class="line"><span class="comment">//bar</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="2-_注意字符串连接">2. 注意字符串连接</h4><p>Javascript中经常会有一些意想不到的类型转换，’+’是其中最常见的一种运算，它既可以做数字的加法，也可以做字符串连接，不注意使用可能会出现不想看到的结果。看下面的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c1 = <span class="number">12</span></span><br><span class="line"><span class="keyword">let</span> c2 = <span class="number">34</span></span><br><span class="line"><span class="keyword">let</span> c3 = <span class="string">'56'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result1 = c1 + c2 + c3 <span class="comment">//4656</span></span><br><span class="line"><span class="keyword">let</span> result2 = <span class="string">''</span>.concat(c1, c2, c3) <span class="comment">//123456</span></span><br></pre></td></tr></table></figure></p>
+<p> 结果1中先做了加法，而非我们期望的字符串连接，使用第二种方法更安全一些。</p>
+<h4 id="3-_使用双波浪运算(~~)">3. 使用双波浪运算(~~)</h4><p> ‘~~’表示执行两次’~’运算，对于正数，它相当于Math.floor()，对于负数则相当于Math.ceil()，只是性能更高，写起来也更快，不过要注意它只能用于32位及以内的数值。<br> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">~<span class="number">12</span> 		<span class="comment">//-13</span></span><br><span class="line">~~<span class="number">12.34</span> 	<span class="comment">//12</span></span><br><span class="line">~~<span class="number">12.89</span> 	<span class="comment">//12</span></span><br><span class="line">~~-<span class="number">12.88</span> 	<span class="comment">//-13</span></span><br></pre></td></tr></table></figure></p>
 
             
                 
@@ -237,7 +232,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Hexo/">Hexo</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/javascript/">javascript</a>
 
             </div>
         
@@ -246,7 +241,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/JavaScript测试框架/"  data-tooltip="JavaScript测试框架">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -254,7 +249,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/深入理解css3动画/" data-tooltip="深入理解CSS动画">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/JavaScript数组方法兼容/" data-tooltip="JavaScript数组方法兼容">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -269,17 +264,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -325,7 +320,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/JavaScript测试框架/"  data-tooltip="JavaScript测试框架">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -333,7 +328,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/深入理解css3动画/" data-tooltip="深入理解CSS动画">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/post/JavaScript数组方法兼容/" data-tooltip="JavaScript数组方法兼容">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -348,17 +343,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -384,17 +379,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="3">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Brilliant-Hexo-Themes/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://xujiongbo.com/post/Javascript小贴士/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
