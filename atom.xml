@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[Xujiongbo]]></title>
   
-  <link href="/atom.xml" rel="self"/>
-  <link href="https://xujiongbo.github.io/"/>
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="https://xujiongbo.github.io/blog/"/>
   <updated>2016-08-08T09:17:23.000Z</updated>
-  <id>https://xujiongbo.github.io/</id>
+  <id>https://xujiongbo.github.io/blog/</id>
   
   <author>
     <name><![CDATA[Xujiongbo]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[理解async/await]]></title>
-    <link href="https://xujiongbo.github.io/post/%E7%90%86%E8%A7%A3async-await/"/>
-    <id>https://xujiongbo.github.io/post/理解async-await/</id>
+    <link href="https://xujiongbo.github.io/blog/post/%E7%90%86%E8%A7%A3async-await/"/>
+    <id>https://xujiongbo.github.io/blog/post/理解async-await/</id>
     <published>2016-06-30T04:48:54.000Z</published>
     <updated>2016-08-08T09:17:23.000Z</updated>
     <content type="html"><![CDATA[<p>async/await已经成为es7 stage-4的一部分。</p>
@@ -27,14 +27,14 @@
 ]]>
     </summary>
     
-      <category term="javscript" scheme="https://xujiongbo.github.io/tags/javscript/"/>
+      <category term="javscript" scheme="https://xujiongbo.github.io/blog/tags/javscript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Javascript小贴士]]></title>
-    <link href="https://xujiongbo.github.io/post/Javascript%E5%B0%8F%E8%B4%B4%E5%A3%AB/"/>
-    <id>https://xujiongbo.github.io/post/Javascript小贴士/</id>
+    <link href="https://xujiongbo.github.io/blog/post/Javascript%E5%B0%8F%E8%B4%B4%E5%A3%AB/"/>
+    <id>https://xujiongbo.github.io/blog/post/Javascript小贴士/</id>
     <published>2016-01-21T08:17:27.000Z</published>
     <updated>2016-01-21T08:53:58.000Z</updated>
     <content type="html"><![CDATA[<p>Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。<br><a id="more"></a></p>
@@ -48,14 +48,14 @@
     
     </summary>
     
-      <category term="javascript" scheme="https://xujiongbo.github.io/tags/javascript/"/>
+      <category term="javascript" scheme="https://xujiongbo.github.io/blog/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[JavaScript数组方法兼容]]></title>
-    <link href="https://xujiongbo.github.io/post/JavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%85%BC%E5%AE%B9/"/>
-    <id>https://xujiongbo.github.io/post/JavaScript数组方法兼容/</id>
+    <link href="https://xujiongbo.github.io/blog/post/JavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%85%BC%E5%AE%B9/"/>
+    <id>https://xujiongbo.github.io/blog/post/JavaScript数组方法兼容/</id>
     <published>2015-11-21T02:06:52.000Z</published>
     <updated>2015-11-22T03:37:54.000Z</updated>
     <content type="html"><![CDATA[<p>在低版本的IE浏览器中，Array的一些原型方法如forEach, map, filter等可能不支持，需要写一些兼容代码.<br><a id="more"></a></p>
@@ -65,14 +65,14 @@
     
     </summary>
     
-      <category term="JavaScript" scheme="https://xujiongbo.github.io/tags/JavaScript/"/>
+      <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[JavaScript测试框架]]></title>
-    <link href="https://xujiongbo.github.io/post/JavaScript%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
-    <id>https://xujiongbo.github.io/post/JavaScript测试框架/</id>
+    <link href="https://xujiongbo.github.io/blog/post/JavaScript%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
+    <id>https://xujiongbo.github.io/blog/post/JavaScript测试框架/</id>
     <published>2015-11-09T05:38:40.000Z</published>
     <updated>2015-11-09T16:15:59.000Z</updated>
     <content type="html"><![CDATA[<p>简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
@@ -89,16 +89,16 @@
     
     </summary>
     
-      <category term="mocha" scheme="https://xujiongbo.github.io/tags/mocha/"/>
+      <category term="mocha" scheme="https://xujiongbo.github.io/blog/tags/mocha/"/>
     
-      <category term="sould.js" scheme="https://xujiongbo.github.io/tags/sould-js/"/>
+      <category term="sould.js" scheme="https://xujiongbo.github.io/blog/tags/sould-js/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Brilliant Hexo Themes]]></title>
-    <link href="https://xujiongbo.github.io/post/Brilliant-Hexo-Themes/"/>
-    <id>https://xujiongbo.github.io/post/Brilliant-Hexo-Themes/</id>
+    <link href="https://xujiongbo.github.io/blog/post/Brilliant-Hexo-Themes/"/>
+    <id>https://xujiongbo.github.io/blog/post/Brilliant-Hexo-Themes/</id>
     <published>2015-11-03T10:30:30.000Z</published>
     <updated>2015-11-03T13:18:59.000Z</updated>
     <content type="html"><![CDATA[<p>Hexo is a fast, simple &amp; powerful blog framework<br><a id="more"></a></p>
@@ -111,16 +111,16 @@
     
     </summary>
     
-      <category term="Hexo" scheme="https://xujiongbo.github.io/tags/Hexo/"/>
+      <category term="Hexo" scheme="https://xujiongbo.github.io/blog/tags/Hexo/"/>
     
-      <category term="Tools" scheme="https://xujiongbo.github.io/categories/Tools/"/>
+      <category term="Tools" scheme="https://xujiongbo.github.io/blog/categories/Tools/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[深入理解CSS动画]]></title>
-    <link href="https://xujiongbo.github.io/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
-    <id>https://xujiongbo.github.io/post/深入理解css3动画/</id>
+    <link href="https://xujiongbo.github.io/blog/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
+    <id>https://xujiongbo.github.io/blog/post/深入理解css3动画/</id>
     <published>2015-11-03T10:14:05.000Z</published>
     <updated>2015-11-03T13:27:01.000Z</updated>
     <content type="html"></content>
@@ -128,16 +128,16 @@
     
     </summary>
     
-      <category term="css" scheme="https://xujiongbo.github.io/tags/css/"/>
+      <category term="css" scheme="https://xujiongbo.github.io/blog/tags/css/"/>
     
-      <category term="前端开发" scheme="https://xujiongbo.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+      <category term="前端开发" scheme="https://xujiongbo.github.io/blog/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[React 学习笔记]]></title>
-    <link href="https://xujiongbo.github.io/post/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://xujiongbo.github.io/post/React-学习笔记/</id>
+    <link href="https://xujiongbo.github.io/blog/post/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://xujiongbo.github.io/blog/post/React-学习笔记/</id>
     <published>2015-10-30T08:27:47.000Z</published>
     <updated>2015-11-03T13:24:34.000Z</updated>
     <content type="html"><![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]></content>
@@ -145,9 +145,9 @@
     <![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]>
     </summary>
     
-      <category term="React" scheme="https://xujiongbo.github.io/tags/React/"/>
+      <category term="React" scheme="https://xujiongbo.github.io/blog/tags/React/"/>
     
-      <category term="JavaScript" scheme="https://xujiongbo.github.io/categories/JavaScript/"/>
+      <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/categories/JavaScript/"/>
     
   </entry>
   
