@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://xujiongbo.github.io/blog/"/>
-  <updated>2016-08-08T09:17:23.000Z</updated>
+  <updated>2016-08-10T06:49:26.000Z</updated>
   <id>https://xujiongbo.github.io/blog/</id>
   
   <author>
@@ -16,10 +16,10 @@
   
   <entry>
     <title><![CDATA[理解async/await]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/%E7%90%86%E8%A7%A3async-await/"/>
-    <id>https://xujiongbo.github.io/blog/post/理解async-await/</id>
+    <link href="https://xujiongbo.github.io/blog/post/understanding-async-await/"/>
+    <id>https://xujiongbo.github.io/blog/post/understanding-async-await/</id>
     <published>2016-06-30T04:48:54.000Z</published>
-    <updated>2016-08-08T09:17:23.000Z</updated>
+    <updated>2016-08-10T06:49:26.000Z</updated>
     <content type="html"><![CDATA[<p>async/await已经成为es7 stage-4的一部分。</p>
 ]]></content>
     <summary type="html">
@@ -27,16 +27,18 @@
 ]]>
     </summary>
     
-      <category term="javscript" scheme="https://xujiongbo.github.io/blog/tags/javscript/"/>
+      <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/tags/JavaScript/"/>
+    
+      <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/categories/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[Javascript小贴士]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/Javascript%E5%B0%8F%E8%B4%B4%E5%A3%AB/"/>
-    <id>https://xujiongbo.github.io/blog/post/Javascript小贴士/</id>
+    <link href="https://xujiongbo.github.io/blog/post/javascript-tips/"/>
+    <id>https://xujiongbo.github.io/blog/post/javascript-tips/</id>
     <published>2016-01-21T08:17:27.000Z</published>
-    <updated>2016-01-21T08:53:58.000Z</updated>
+    <updated>2016-08-10T06:49:05.000Z</updated>
     <content type="html"><![CDATA[<p>Javascript中有很多值得学习和记住的小技巧和经典的代码片段，在这里做个小总结。<br><a id="more"></a></p>
 <h4 id="1-_链式方法">1. 链式方法</h4><p>jQuery中 $dom.html().css().addClass() 这类的就叫链式方法，在对象方法中返回对象本身(this)就可以实现。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chain</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.val = val</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log(<span class="keyword">this</span>.val)</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">this</span>.setVal = <span class="function"><span class="keyword">function</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.val = val</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> chain = <span class="keyword">new</span> Chain(<span class="string">'foo'</span>)</span><br><span class="line">chain.print().setVal(<span class="string">'bar'</span>).print()</span><br><span class="line"><span class="comment">//foo</span></span><br><span class="line"><span class="comment">//bar</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="2-_注意字符串连接">2. 注意字符串连接</h4><p>Javascript中经常会有一些意想不到的类型转换，’+’是其中最常见的一种运算，它既可以做数字的加法，也可以做字符串连接，不注意使用可能会出现不想看到的结果。看下面的例子<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> c1 = <span class="number">12</span></span><br><span class="line"><span class="keyword">let</span> c2 = <span class="number">34</span></span><br><span class="line"><span class="keyword">let</span> c3 = <span class="string">'56'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result1 = c1 + c2 + c3 <span class="comment">//4656</span></span><br><span class="line"><span class="keyword">let</span> result2 = <span class="string">''</span>.concat(c1, c2, c3) <span class="comment">//123456</span></span><br></pre></td></tr></table></figure></p>
@@ -48,35 +50,20 @@
     
     </summary>
     
-      <category term="javascript" scheme="https://xujiongbo.github.io/blog/tags/javascript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[JavaScript数组方法兼容]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/JavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E5%85%BC%E5%AE%B9/"/>
-    <id>https://xujiongbo.github.io/blog/post/JavaScript数组方法兼容/</id>
-    <published>2015-11-21T02:06:52.000Z</published>
-    <updated>2015-11-22T03:37:54.000Z</updated>
-    <content type="html"><![CDATA[<p>在低版本的IE浏览器中，Array的一些原型方法如forEach, map, filter等可能不支持，需要写一些兼容代码.<br><a id="more"></a></p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>在低版本的IE浏览器中，Array的一些原型方法如forEach, map, filter等可能不支持，需要写一些兼容代码.<br>]]>
-    
-    </summary>
-    
       <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/tags/JavaScript/"/>
+    
+      <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/categories/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[JavaScript测试框架]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/JavaScript%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6/"/>
-    <id>https://xujiongbo.github.io/blog/post/JavaScript测试框架/</id>
+    <link href="https://xujiongbo.github.io/blog/post/mocha-should.js/"/>
+    <id>https://xujiongbo.github.io/blog/post/mocha-should.js/</id>
     <published>2015-11-09T05:38:40.000Z</published>
-    <updated>2015-11-09T16:15:59.000Z</updated>
+    <updated>2016-08-10T06:01:55.000Z</updated>
     <content type="html"><![CDATA[<p>简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
-<h4 id="1-_断言组件assert">1. 断言组件assert</h4><p>在介绍mocha之前，先来了解一下assert。<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a> 是node.js内置的一个module，用法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>);</span><br></pre></td></tr></table></figure></p>
+<h4 id="1-_断言组件assert">1. 断言组件assert</h4><p>在介绍mocha之前，先来了解一下assert。<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a> 是node.js内置的一个module，用法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>它拥有一下几个主要方法：</p>
 <pre><code>- <span class="keyword">assert</span>.[not]equal(<span class="annotation">actual</span>, expected[,message])，相当于 ==
 - <span class="keyword">assert</span>(<span class="keyword">value</span>[,message]) 或者 <span class="keyword">assert</span>.ok(<span class="keyword">value</span>[,message])，相当于<span class="keyword">assert</span>.equal(true, !!<span class="keyword">value</span>[,message])
@@ -91,61 +78,7 @@
     
       <category term="mocha" scheme="https://xujiongbo.github.io/blog/tags/mocha/"/>
     
-      <category term="sould.js" scheme="https://xujiongbo.github.io/blog/tags/sould-js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[Brilliant Hexo Themes]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/Brilliant-Hexo-Themes/"/>
-    <id>https://xujiongbo.github.io/blog/post/Brilliant-Hexo-Themes/</id>
-    <published>2015-11-03T10:30:30.000Z</published>
-    <updated>2015-11-03T13:18:59.000Z</updated>
-    <content type="html"><![CDATA[<p>Hexo is a fast, simple &amp; powerful blog framework<br><a id="more"></a></p>
-<ul>
-<li><a href="https://github.com/LouisBarranqueiro/tranquilpeak-hexo-theme" target="_blank" rel="external">Tranquilpeak</a>: <a href="http://louisbarranqueiro.github.io/tranquilpeak-hexo-theme/" target="_blank" rel="external">demo</a></li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p>Hexo is a fast, simple &amp; powerful blog framework<br>]]>
-    
-    </summary>
-    
-      <category term="Hexo" scheme="https://xujiongbo.github.io/blog/tags/Hexo/"/>
-    
-      <category term="Tools" scheme="https://xujiongbo.github.io/blog/categories/Tools/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[深入理解CSS动画]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3css3%E5%8A%A8%E7%94%BB/"/>
-    <id>https://xujiongbo.github.io/blog/post/深入理解css3动画/</id>
-    <published>2015-11-03T10:14:05.000Z</published>
-    <updated>2015-11-03T13:27:01.000Z</updated>
-    <content type="html"></content>
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="css" scheme="https://xujiongbo.github.io/blog/tags/css/"/>
-    
-      <category term="前端开发" scheme="https://xujiongbo.github.io/blog/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[React 学习笔记]]></title>
-    <link href="https://xujiongbo.github.io/blog/post/React-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>https://xujiongbo.github.io/blog/post/React-学习笔记/</id>
-    <published>2015-10-30T08:27:47.000Z</published>
-    <updated>2015-11-03T13:24:34.000Z</updated>
-    <content type="html"><![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]></content>
-    <summary type="html">
-    <![CDATA[<h3 id="今天开始学习React">今天开始学习React</h3>]]>
-    </summary>
-    
-      <category term="React" scheme="https://xujiongbo.github.io/blog/tags/React/"/>
+      <category term="should.js" scheme="https://xujiongbo.github.io/blog/tags/should-js/"/>
     
       <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/categories/JavaScript/"/>
     

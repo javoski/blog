@@ -3,36 +3,42 @@
 <html lang="zh-cn">
     
 <head>
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Xujiongbo">
-    <title>理解async/await - Xujiongbo</title>
+    <title>JavaScript测试框架 - Xujiongbo</title>
     <meta name="author" content="Xujiongbo">
     
     
-        <link rel="alternative" type="application/atom+xml" title="RSS" href="/blog/atom.xml">
+        <link rel="icon" href="https://xujiongbo.github.io/blog/assets/images/fav.ico">
     
-    <meta name="description" content="async/await已经成为es7 stage-4的一部分。">
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/blog/atom.xml">
+    
+    <meta name="description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="理解async/await">
-<meta property="og:url" content="https://xujiongbo.github.io/blog/post/理解async-await/index.html">
+<meta property="og:title" content="JavaScript测试框架">
+<meta property="og:url" content="https://xujiongbo.github.io/blog/post/mocha-should.js/index.html">
 <meta property="og:site_name" content="Xujiongbo">
-<meta property="og:description" content="async/await已经成为es7 stage-4的一部分。">
-<meta property="og:updated_time" content="2016-08-08T09:17:23.000Z">
+<meta property="og:description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
+<meta property="og:updated_time" content="2016-08-10T06:01:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解async/await">
-<meta name="twitter:description" content="async/await已经成为es7 stage-4的一部分。">
+<meta name="twitter:title" content="JavaScript测试框架">
+<meta name="twitter:description" content="简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。">
     
     
+        
     
-        <meta property="og:image" content="/blog/assets/images/http://7xo0yk.com1.z0.glb.clouddn.com/avatar.jpg"/>
+    
+        <meta property="og:image" content="http://7xo0yk.com1.z0.glb.clouddn.com/avatar.jpg"/>
     
     
     
     
     <!--STYLES-->
-    <link rel="stylesheet" href="/blog/assets/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/blog/assets/css/style-nuvue6sithwirecbhvw3dkaobiojqvtadsnhguwi7k04xklybw5djl1smadp.min.css" type="text/css">
     <!--STYLES END-->
+    
     
 </head>
 
@@ -47,7 +53,7 @@
         
     
 
-<header id="header" data-behavior="3">
+<header id="header" data-behavior="1">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <h1 class="header-title">
         <a class="header-title-link" href="/blog/ ">Xujiongbo</a>
@@ -55,7 +61,7 @@
     
         
             <a  class="header-right-picture "
-                href="/blog/#about">
+                href="/">
         
         
             <img class="header-picture" src="http://7xo0yk.com1.z0.glb.clouddn.com/avatar.jpg"/>
@@ -71,7 +77,7 @@
         
     
 
-<nav id="sidebar" data-behavior="3">
+<nav id="sidebar" data-behavior="1">
     
         <div class="sidebar-profile">
             <a href="/#about">
@@ -189,7 +195,7 @@
 </nav>
 
             
-            <div id="main" data-behavior="3"
+            <div id="main" data-behavior="1"
                  class="
                         hasCoverMetaIn
                         ">
@@ -200,26 +206,37 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            理解async/await
+            JavaScript测试框架
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Thu Jun 30 2016 12:48:54 GMT+0800">
+    <time itemprop="datePublished" datetime="2015-11-09T13:38:40+08:00">
 	
-		    6月 30, 2016
+		    11月 09, 2015
     	
     </time>
     
+        <span>发布在 </span>
+        
+    <a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>
+
+
+    
 </div>
+
 </div>
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>async/await已经成为es7 stage-4的一部分。</p>
-
-            
-                
-
+            <p>简要介绍使用 mocha + should.js 来编写简单的测试单元和测试模块。<br><a id="more"></a></p>
+<h4 id="1-_断言组件assert">1. 断言组件assert</h4><p>在介绍mocha之前，先来了解一下assert。<br><a href="http://nodejs.cn/api/assert.html" target="_blank" rel="external">assert</a> 是node.js内置的一个module，用法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> assert = <span class="built_in">require</span>(<span class="string">'assert'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>它拥有一下几个主要方法：</p>
+<pre><code>- <span class="keyword">assert</span>.[not]equal(<span class="annotation">actual</span>, expected[,message])，相当于 ==
+- <span class="keyword">assert</span>(<span class="keyword">value</span>[,message]) 或者 <span class="keyword">assert</span>.ok(<span class="keyword">value</span>[,message])，相当于<span class="keyword">assert</span>.equal(true, !!<span class="keyword">value</span>[,message])
+- <span class="keyword">assert</span>.[not]deepEqual(<span class="annotation">actual</span>, expected[, message])，在基本类型上来说与equal一致，只对可枚举类型有意义
+- <span class="keyword">assert</span>.[not]StrictEqual(<span class="annotation">actual</span>, expected[, message])，相当于 ===
+- <span class="keyword">assert</span>.[not]DeepStrictEqual(<span class="annotation">actual</span>, expected[, message])
+</code></pre>
             
         </div>
     </div>
@@ -228,7 +245,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/blog/tags/javscript/">javscript</a>
+    <a class="tag tag--primary tag--small t-link" href="/blog/tags/mocha/">mocha</a> <a class="tag tag--primary tag--small t-link" href="/blog/tags/should-js/">should.js</a>
 
             </div>
         
@@ -237,7 +254,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/javascript-tips/"  data-tooltip="Javascript小贴士">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -245,7 +262,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/Javascript小贴士/" data-tooltip="Javascript小贴士">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -260,42 +277,45 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
         
             <li class="post-action">
-                <a class="post-action-btn btn btn--default tooltip--top" data-tooltip="评论" href="#disqus_thread">
+                <a class="post-action-btn btn btn--default" href="#ds-thread">
                     <i class="fa fa-comment-o"></i>
                 </a>
             </li>
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default tooltip--top" data-tooltip="回到顶部" href="#">
-                    <i class="fa fa-arrow-up"></i>
-                </a>
+                <a class="post-action-btn btn btn--default" href="#">
             
+                <i class="fa fa-list"></i>
+            </a>
         </li>
     </ul>
 </div>
 
 
         
-            <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+            
+                <div id="ds-thread" class="ds-thread" data-thread-key="post/mocha-should.js/"
+     data-title="JavaScript测试框架" data-url="https://xujiongbo.github.io/blog/post/mocha-should.js/">
 </div>
+
+            
         
     </div>
 </article>
@@ -310,13 +330,13 @@
 
             </div>
             
-                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="1">
                     <div class="post-actions-wrap">
     <nav>
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/javascript-tips/"  data-tooltip="Javascript小贴士">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -324,7 +344,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/Javascript小贴士/" data-tooltip="Javascript小贴士">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -339,53 +359,53 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
         
             <li class="post-action">
-                <a class="post-action-btn btn btn--default tooltip--top" data-tooltip="评论" href="#disqus_thread">
+                <a class="post-action-btn btn btn--default" href="#ds-thread">
                     <i class="fa fa-comment-o"></i>
                 </a>
             </li>
         
         <li class="post-action">
             
-                <a class="post-action-btn btn btn--default tooltip--top" data-tooltip="回到顶部" href="#">
-                    <i class="fa fa-arrow-up"></i>
-                </a>
+                <a class="post-action-btn btn btn--default" href="#">
             
+                <i class="fa fa-list"></i>
+            </a>
         </li>
     </ul>
 </div>
 
 
                 </div>
-                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+                <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/理解async-await/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/mocha-should.js/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
@@ -394,7 +414,7 @@
 <div id="share-options-mask" class="share-options-mask"></div>
             
         </div>
-        <!-- Define author's picture -->
+        
 
 
     
@@ -411,14 +431,14 @@
         
             <h4 id="about-card-name">Xujiongbo</h4>
         
-            <h5 id="about-card-bio"><p>Web Developer</p>
+            <h5 id="about-card-bio"><p>author.bio</p>
 </h5>
         
         
             <h5 id="about-card-job">
                 <i class="fa fa-briefcase"></i>
                 <br/>
-                <p>程序员</p>
+                <p>author.job</p>
 
             </h5>
         
@@ -433,32 +453,26 @@
 </div>
 
         
-<div id="cover" style="background-image:url('/blog/assets/images/cover.jpg');"></div>
+<div id="cover" style="background-image:url('http://7xo0yk.com1.z0.glb.clouddn.com/cover-v1.2.0.jpg');"></div>
     </body>
     <!--SCRIPTS-->
-<script src="/blog/assets/js/script.min.js" type="text/javascript"></script>
+<script src="/blog/assets/js/script-i4qo6jx6jji9fg0dftpya6ivemizsbow4fhow76d8dwpm7m1wbvi378ssumx.min.js" type="text/javascript"></script>
 <!--SCRIPTS END-->
 
-    <script type="text/javascript">
-        var disqus_shortname = 'xujiongbo';
-        (function() {
-            var dsq = document.createElement('script');
-            dsq.type = 'text/javascript';
-            dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
+    
+        <script type="text/javascript">
+            var duoshuoQuery = {short_name:'xujiongbo'};
+            (function() {
+                var ds = document.createElement('script');
+                ds.type = 'text/javascript';ds.async = true;
+                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                ds.charset = 'UTF-8';
+                (document.getElementsByTagName('head')[0]
+                || document.getElementsByTagName('body')[0]).appendChild(ds);
+            })();
+        </script>
+    
 
-
-    <script type="text/javascript">
-        (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-                (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-            e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-        })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-        _st('install','kss8oygeoZJYbaqddTsD','2.0.0');
-    </script>
 
 
 </html>
