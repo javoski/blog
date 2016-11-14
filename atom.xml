@@ -40,16 +40,17 @@
   </entry>
   
   <entry>
-    <title><![CDATA[理解async/await]]></title>
+    <title><![CDATA[async/await&&异步编程解决方案讨论]]></title>
     <link href="https://xujiongbo.github.io/blog/post/async-await/"/>
     <id>https://xujiongbo.github.io/blog/post/async-await/</id>
     <published>2016-06-30T04:48:54.000Z</published>
-    <updated>2016-11-14T03:54:39.000Z</updated>
-    <content type="html"><![CDATA[<p>async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
-<h5 id="1-回调callback">1.回调callback</h5>]]></content>
+    <updated>2016-11-14T05:07:10.000Z</updated>
+    <content type="html"><![CDATA[<p>JavaScript是一种事件驱动的脚本语言，这就决定了异步流程控制在JavaScript中不可回避的，而async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
+<h5 id="1-回调callback">1.回调callback</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'end'</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="2-Promise">2.Promise</h5><h5 id="3-生成器Generator">3.生成器Generator</h5><h5 id="4-async/await">4.async/await</h5>]]></content>
     <summary type="html">
-    <![CDATA[<p>async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
-<h5 id="1-回调callback">1.回调callback</h5>]]>
+    <![CDATA[<p>JavaScript是一种事件驱动的脚本语言，这就决定了异步流程控制在JavaScript中不可回避的，而async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
+<h5]]>
     </summary>
     
       <category term="JavaScript" scheme="https://xujiongbo.github.io/blog/tags/JavaScript/"/>
