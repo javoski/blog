@@ -232,7 +232,7 @@
                 <h1 class="postShorten-title" itemprop="headline">
                     
                         <a class="link-unstyled" href="/blog/post/async-await/">
-                            async/await&amp;&amp;异步编程解决方案讨论
+                            async/await&amp;异步编程解决方案讨论
                         </a>
                     
                 </h1>
@@ -255,7 +255,8 @@
             
                 <div class="postShorten-content" itemprop="articleBody">
                     <p>JavaScript是一种事件驱动的脚本语言，这就决定了异步流程控制在JavaScript中不可回避的，而async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
-<h5 id="1-回调callback">1.回调callback</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'end'</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="1-回调Callback">1.回调Callback</h5><p>回调是我们用的最多的一种异步编程方式，以错误优先的回调机制在Node.js的API里面更是体现的淋漓尽致。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line">fs.readFile(<span class="string">'./package.json'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>但是callback在有多层嵌套的情况下会形成回调地狱，就像下面这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <h5 id="2-Promise">2.Promise</h5><h5 id="3-生成器Generator">3.生成器Generator</h5><h5 id="4-async/await">4.async/await</h5>
                     
                         
