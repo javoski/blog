@@ -268,7 +268,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -296,20 +296,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>JavaScript是一种事件驱动的脚本语言，这就决定了异步流程控制在JavaScript中不可回避的，而async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。</p>
-<h5 id="1-回调Callback">1.回调Callback</h5><p>回调是我们用的最多的一种异步编程方式，以错误优先的回调机制在Node.js的API里面更是体现的淋漓尽致。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>)</span><br><span class="line">fs.readFile(<span class="string">'./package.json'</span>, (err, data) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err</span><br><span class="line">  <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>但是callback在有多层嵌套的情况下会形成回调地狱，就像下面这样：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
-<h5 id="2-Promise">2.Promise</h5><h5 id="3-生成器Generator">3.生成器Generator</h5><h5 id="4-async/await">4.async/await</h5>
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <p>JavaScript是一种事件驱动的脚本语言，这就决定了异步流程控制在JavaScript中不可回避的，而async/await是ECMAScript中最新的异步解决方案，在了解async/await之前，我们先回顾一下JavaScript中异步编程的发展。<br>
                     
+                        <a href="/blog/post/async-await/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/blog/post/async-await/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
                     
                 </div>
             
@@ -361,7 +354,7 @@
     </article>
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+    <article class="postShorten postShorten--thumbnailimg-right" itemscope itemType="http://schema.org/BlogPosting">
         <div class="postShorten-wrap">
             
             <div class="postShorten-header">
@@ -389,21 +382,13 @@
 
             </div>
             
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h4 id="1-应该选哪种测试框架?">1.应该选哪种测试框架?</h4><p>现在比较流行的JavaScript测试框架有<a href="https://github.com/mochajs/mocha" target="_blank" rel="external">Mocha</a>，<a href="https://github.com/jasmine/jasmine" target="_blank" rel="external">Jasmine</a>，<a href="https://github.com/avajs/ava" target="_blank" rel="external">AVA</a>，这几种框架从根本上来说没有好坏之分，只有适不适合，选用哪种测试框架要看个人情况以及具体项目的类型决定。</p>
-<h5 id="1-数据对比">1.数据对比</h5><p>关于它们的一些数据对比可以看<a href="https://npmcompare.com/compare/ava,jasmine,mocha" target="_blank" rel="external">这里</a>，可以看到Mocha比另外两个早发布两年，也是其中最流行的，Jasmine次之(尽管现在Jasmine的star数好像比Mocha多一点)。</p>
-<h5 id="2-语法">2.语法</h5><p>这三种框架从语法层面来说大同小异，尤其是Mocha和Jasmine都提供了describe和it两个全局函数。</p>
-<h4 id="2-应该选哪种断言库?">2.应该选哪种断言库?</h4><p>除了Node.js内置的assert module之外，比较流行的断言库有<a href="https://github.com/chaijs/chai" target="_blank" rel="external">chai</a>，<a href="https://github.com/shouldjs/should.js" target="_blank" rel="external">should.js</a>等。</p>
-
+                <div class="postShorten-excerpt" itemprop="articleBody">
+                    <h4 id="1-应该选哪种测试框架?">1.应该选哪种测试框架?</h4><p>现在比较流行的JavaScript测试框架有<a href="https://github.com/mochajs/mocha">Mocha</a>，<a href="https://github.com/jasmine/jasmine">Jasmine</a>，<a href="https://github.com/avajs/ava">AVA</a>，这几种框架从根本上来说没有好坏之分，只有适不适合，选用哪种测试框架要看个人情况以及具体项目的类型决定。<br>
                     
+                        <a href="/blog/post/javascript-test-framework/" class="postShorten-excerpt_link link">
+                            阅读全文
+                        </a>
                         
-                    
-                    
-                        <p>
-                            <a href="/blog/post/javascript-test-framework/#post-footer" class="postShorten-excerpt_link link">
-                                注释和共享
-                            </a>
-                        </p>
                     
                 </div>
             
