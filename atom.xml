@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://xujiongbo.github.io/blog/"/>
-  <updated>2016-12-09T14:16:04.000Z</updated>
+  <updated>2016-12-09T14:43:07.000Z</updated>
   <id>https://xujiongbo.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="https://xujiongbo.github.io/blog/post/media-query-list/"/>
     <id>https://xujiongbo.github.io/blog/post/media-query-list/</id>
     <published>2016-12-08T15:53:11.000Z</published>
-    <updated>2016-12-09T14:16:04.000Z</updated>
+    <updated>2016-12-09T14:43:07.000Z</updated>
     <content type="html"><![CDATA[<h4 id="媒体查询(Media_Queries)">媒体查询(Media Queries)</h4><p>我们都知道<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="external">媒体查询</a>在响应式设计中扮演着一个重要的角色，它可以让我们在不同特性的设备上应用不同的CSS样式。一种常见的应用如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 在width不大于640的设备上，aside将被隐藏 */</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (max-width: <span class="number">640px</span>) </span>&#123;</span><br><span class="line">  <span class="tag">aside</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>其实在JavaScript中通过MediaQueryList接口，也可以进行媒体查询。</p>
 <h4 id="MediaQueryList是什么?">MediaQueryList是什么?</h4><p><a href="https://www.w3.org/TR/cssom-view-1/#the-mediaquerylist-interface" target="_blank" rel="external">MediaQueryList</a>(下面简称MQL)是<a href="https://www.w3.org/TR/cssom-view/" target="_blank" rel="external">CSSOM View Module</a>中定义的一个接口，一个MQL对象，本质上对应一条媒体查询，通过获取它的matches属性得到查询结果。<br>MQL对象通过调用window.matchMedia方法获得，matchMedia接受一个媒体查询字符串作为参数，并返回对应的MQL对象。一个简单的例子如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mql = <span class="built_in">window</span>.matchMedia(<span class="string">'(max-width: 640px)'</span>)</span><br><span class="line"><span class="keyword">if</span> (mql.matches) &#123;</span><br><span class="line">  <span class="comment">// width &lt;= 640px</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// width &gt; 640px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -32,6 +32,12 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'handheld'</span>)</span><br><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'tv'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更简便的检测方案</p>
+</li>
+</ol>
+<h4 id="需要注意啥?">需要注意啥?</h4><ol>
+<li><p>MQL对象的matches是动态的<br>同HTMLElement上的classList, childNodes一样(不同的是classList, childNodes都是引用类型，而matches是基本类型)，第一次通过matchMedia方法获取得到mql之后，后面媒体特性发生改变，mql.matches拿到的就是最新的值，不需要再调用一次matchMedia。</p>
+</li>
+<li><p>兼容性<br>MQL比CSS中的媒体查询出来的晚一些，并不代表支持CSS媒体查询的浏览器就一定支持MQL(当然支持MQL的浏览器支持CSS Media Query是没问题的)，它的兼容性如下：</p>
 </li>
 </ol>
 ]]></content>

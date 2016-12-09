@@ -147,25 +147,13 @@
         
             <li class="sidebar-button">
                 
-                    <a  class="sidebar-button-link "
+                    <a  class="sidebar-button-link st-search-show-outputs"
                          href="/blog/all-archives/"
                         
                     >
                 
                     <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
                     <span class="sidebar-button-desc">归档</span>
-                </a>
-        </li>
-        
-            <li class="sidebar-button">
-                
-                    <a  class="sidebar-button-link st-search-show-outputs"
-                         href="/blog/#search"
-                        
-                    >
-                
-                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                    <span class="sidebar-button-desc">搜索</span>
                 </a>
         </li>
         
@@ -266,6 +254,12 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'handheld'</span>)</span><br><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'tv'</span>)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更简便的检测方案</p>
+</li>
+</ol>
+<h4 id="需要注意啥?">需要注意啥?</h4><ol>
+<li><p>MQL对象的matches是动态的<br>同HTMLElement上的classList, childNodes一样(不同的是classList, childNodes都是引用类型，而matches是基本类型)，第一次通过matchMedia方法获取得到mql之后，后面媒体特性发生改变，mql.matches拿到的就是最新的值，不需要再调用一次matchMedia。</p>
+</li>
+<li><p>兼容性<br>MQL比CSS中的媒体查询出来的晚一些，并不代表支持CSS媒体查询的浏览器就一定支持MQL(当然支持MQL的浏览器支持CSS Media Query是没问题的)，它的兼容性如下：</p>
 </li>
 </ol>
 
