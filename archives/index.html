@@ -259,7 +259,7 @@
 <h4 id="需要注意啥?">需要注意啥?</h4><ol>
 <li><p>MQL对象的matches是动态的<br>同HTMLElement上的classList, childNodes一样(不同的是classList, childNodes都是引用类型，而matches是基本类型)，第一次通过matchMedia方法获取得到mql之后，后面媒体特性发生改变，mql.matches拿到的就是最新的值，不需要再调用一次matchMedia。</p>
 </li>
-<li><p>兼容性<br>MQL比CSS中的媒体查询出来的晚一些，并不代表支持CSS媒体查询的浏览器就一定支持MQL(当然支持MQL的浏览器支持CSS Media Query是没问题的)，它的兼容性如下：</p>
+<li><p>兼容性<br>MQL比CSS中的媒体查询出来的晚一些，所以并不代表支持CSS媒体查询的浏览器就一定支持MQL(当然支持MQL的浏览器支持CSS Media Query是没问题的)，它的兼容性如下：</p>
 </li>
 </ol>
 
