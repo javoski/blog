@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Xujiongbo">
-    <title>MediaQueryList - JS中的媒体查询 - Xujiongbo</title>
+    <title>Vue疑问 - Xujiongbo</title>
     <meta name="author" content="Xujiongbo">
     
     
@@ -15,19 +15,16 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/blog/atom.xml">
     
-    <meta name="description" content="媒体查询(Media Queries)我们都知道媒体查询在响应式设计中扮演着一个重要的角色，它可以让我们在不同特性的设备上应用不同的CSS样式。一种常见的应用如下：123456/* 在width不大于640的设备上，aside将被隐藏 */@media (max-width: 640px) &amp;#123;  aside &amp;#123;    display: none;  &amp;#125;&amp;#125;
-其">
+    <meta name="description" content="组件里的components属性有何作用？">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="MediaQueryList - JS中的媒体查询">
-<meta property="og:url" content="https://xujiongbo.github.io/blog/post/media-query-list/index.html">
+<meta property="og:title" content="Vue疑问">
+<meta property="og:url" content="https://xujiongbo.github.io/blog/post/vue-questions/index.html">
 <meta property="og:site_name" content="Xujiongbo">
-<meta property="og:description" content="媒体查询(Media Queries)我们都知道媒体查询在响应式设计中扮演着一个重要的角色，它可以让我们在不同特性的设备上应用不同的CSS样式。一种常见的应用如下：123456/* 在width不大于640的设备上，aside将被隐藏 */@media (max-width: 640px) &amp;#123;  aside &amp;#123;    display: none;  &amp;#125;&amp;#125;
-其">
-<meta property="og:updated_time" content="2016-12-11T13:30:22.000Z">
+<meta property="og:description" content="组件里的components属性有何作用？">
+<meta property="og:updated_time" content="2016-12-20T10:02:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MediaQueryList - JS中的媒体查询">
-<meta name="twitter:description" content="媒体查询(Media Queries)我们都知道媒体查询在响应式设计中扮演着一个重要的角色，它可以让我们在不同特性的设备上应用不同的CSS样式。一种常见的应用如下：123456/* 在width不大于640的设备上，aside将被隐藏 */@media (max-width: 640px) &amp;#123;  aside &amp;#123;    display: none;  &amp;#125;&amp;#125;
-其">
+<meta name="twitter:title" content="Vue疑问">
+<meta name="twitter:description" content="组件里的components属性有何作用？">
     
     
         
@@ -218,19 +215,19 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            MediaQueryList - JS中的媒体查询
+            Vue疑问
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" datetime="2016-12-08T23:53:11+08:00">
+    <time itemprop="datePublished" datetime="2016-12-20T18:00:15+08:00">
 	
-		    12月 08, 2016
+		    12月 20, 2016
     	
     </time>
     
         <span>发布在 </span>
         
-    <a class="category-link" href="/blog/categories/JavaScript/">JavaScript</a>
+    <a class="category-link" href="/blog/categories/Vue/">Vue</a>
 
 
     
@@ -240,25 +237,8 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h4 id="媒体查询(Media_Queries)">媒体查询(Media Queries)</h4><p>我们都知道<a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Media_queries" target="_blank" rel="external">媒体查询</a>在响应式设计中扮演着一个重要的角色，它可以让我们在不同特性的设备上应用不同的CSS样式。一种常见的应用如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 在width不大于640的设备上，aside将被隐藏 */</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">media</span> (max-width: <span class="number">640px</span>) </span>&#123;</span><br><span class="line">  <span class="tag">aside</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>;</span><br><span class="line">  &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>其实在JavaScript中通过MediaQueryList接口，也可以进行媒体查询。</p>
-<h4 id="MediaQueryList是什么?">MediaQueryList是什么?</h4><p><a href="https://www.w3.org/TR/cssom-view-1/#the-mediaquerylist-interface" target="_blank" rel="external">MediaQueryList</a>(下面简称MQL)是<a href="https://www.w3.org/TR/cssom-view/" target="_blank" rel="external">CSSOM View Module</a>中定义的一个接口，一个MQL对象，本质上对应一条媒体查询，通过获取它的matches属性得到查询结果。<br>MQL对象通过调用window.matchMedia方法获得，matchMedia接受一个媒体查询字符串作为参数，并返回对应的MQL对象。一个简单的例子如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mql = <span class="built_in">window</span>.matchMedia(<span class="string">'(max-width: 640px)'</span>)</span><br><span class="line"><span class="keyword">if</span> (mql.matches) &#123;</span><br><span class="line">  <span class="comment">// width &lt;= 640px</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="comment">// width &gt; 640px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>mql对象还提供了change事件接口，它拥有addListener(handler)和removeListener(handler)两个方法，用于监听和移除事件，这两个方法本质上是addEventListener(‘change’, handler)和addEventListener(‘change’, handler，的简写。handler是一个回调函数，传回一个MediaQueryListEvent作为参数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mql = <span class="built_in">window</span>.matchMedia(<span class="string">'(max-width: 640px)'</span>)</span><br><span class="line">mql.addListener(handlMediaChange) <span class="comment">// mql.onchange = handleMediaChange</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleMediaChange</span> (<span class="params">mqle</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(mqle.matches) <span class="comment">// 更新后的boolean值</span></span><br><span class="line">  <span class="built_in">console</span>.log(mqle.media) <span class="comment">// 对应的查询字符串</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="这能做什么?">这能做什么?</h4><ol>
-<li>更灵活的响应式设计<br>CSS中的媒体查询可以对相同的内容在不同的场景下作用不同的样式，而JS中的媒体查询可以让我们根据设备特性的变化直接修改内容，这是MQL最大的作用。</li>
-</ol>
-<ol>
-<li><p>在一定程度上代替UA检测</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'handheld'</span>)</span><br><span class="line"><span class="built_in">window</span>.matchMedia(<span class="string">'tv'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更简便的检测方案</p>
-</li>
-</ol>
-<h4 id="需要注意啥?">需要注意啥?</h4><ol>
-<li><p>MQL对象的matches是动态的<br>同HTMLElement上的classList, childNodes一样(不同的是classList, childNodes都是引用类型，而matches是基本类型)，第一次通过matchMedia方法获取得到mql之后，后面媒体特性发生改变，mql.matches拿到的就是最新的值，不需要再调用一次matchMedia。</p>
-</li>
-<li><p>兼容性<br>MQL比CSS中的媒体查询出来的晚一些，所以并不代表支持CSS媒体查询的浏览器就一定支持MQL(当然支持MQL的浏览器支持CSS Media Query是没问题的)，它的兼容性如下：</p>
-</li>
+            <ol>
+<li>组件里的components属性有何作用？</li>
 </ol>
 
             
@@ -269,7 +249,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">标签</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/blog/tags/JavaScript/">JavaScript</a>
+    <a class="tag tag--primary tag--small t-link" href="/blog/tags/Vue/">Vue</a>
 
             </div>
         
@@ -278,7 +258,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/vue-questions/"  data-tooltip="Vue疑问">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/advanced-regular-expression/"  data-tooltip="正则表达式进阶">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -286,7 +266,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/javascript-apis/" data-tooltip="JavaScript的常用API中一些可能忽略的点">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/media-query-list/" data-tooltip="MediaQueryList - JS中的媒体查询">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -301,17 +281,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -335,8 +315,8 @@
 
         
             
-                <div id="ds-thread" class="ds-thread" data-thread-key="post/media-query-list/"
-     data-title="MediaQueryList - JS中的媒体查询" data-url="https://xujiongbo.github.io/blog/post/media-query-list/">
+                <div id="ds-thread" class="ds-thread" data-thread-key="post/vue-questions/"
+     data-title="Vue疑问" data-url="https://xujiongbo.github.io/blog/post/vue-questions/">
 </div>
 
             
@@ -360,7 +340,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/vue-questions/"  data-tooltip="Vue疑问">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/advanced-regular-expression/"  data-tooltip="正则表达式进阶">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
@@ -368,7 +348,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/javascript-apis/" data-tooltip="JavaScript的常用API中一些可能忽略的点">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/blog/post/media-query-list/" data-tooltip="MediaQueryList - JS中的媒体查询">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
                     <i class="fa fa-angle-right"></i>
@@ -383,17 +363,17 @@
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Google+" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="post-action-btn btn btn--default tooltip--top" target="new" data-tooltip="分享到 Twitter" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -419,17 +399,17 @@
                 <div id="share-options-bar" class="share-options-bar" data-behavior="1">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-google-plus"></i><span class="">分享到 Google+</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-facebook-official"></i><span>分享到 Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/media-query-list/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https://xujiongbo.github.io/blog/post/vue-questions/">
                 <i class="fa fa-twitter"></i><span>分享到 Twitter</span>
             </a>
         </li>
